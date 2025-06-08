@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Animated Login Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/butterfly.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="box">
+        <div class="login">
+            <div class="loginBx">
+                <h2>
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Login
+                </h2>
+                <form id="loginForm" onsubmit="return handleLogin(event)">
+                    <input type="text" placeholder="Username" id="username" required>
+                    <div class="password-container">
+                        <input type="password" placeholder="Password" id="passwordField" required>
+                        <i class="fa-solid fa-eye password-toggle" id="passwordToggle"></i>
+                    </div>
+                    <input type="submit" value="Sign in" />
+                    <div class="group">
+                        <a href="#">Forgot Password</a>
+                        <a href="#">Sign up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="src/butterfly.js"></script>
+    <script>
+        // Password toggle functionality
+        document.getElementById('passwordToggle').addEventListener('click', function() {
+            const passwordField = document.getElementById('passwordField');
+            const passwordToggle = document.getElementById('passwordToggle');
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                passwordToggle.classList.remove('fa-eye');
+                passwordToggle.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                passwordToggle.classList.remove('fa-eye-slash');
+                passwordToggle.classList.add('fa-eye');
+            }
+        });
+
+        // Login handling
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('passwordField').value;
+
+            // For demo purposes, you can set your desired username/password here
+            if (username === "admin" && password === "admin123") {
+                // Store login state in sessionStorage (clears when browser closes)
+                sessionStorage.setItem('isLoggedIn', 'true');
+                
+                // Redirect to your main project
+                window.location.replace('project-test1.1_/index.html');
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+            return false;
+        }
+
+        // Check if user is already logged in
+        window.onload = function() {
+            if (sessionStorage.getItem('isLoggedIn') === 'true') {
+                window.location.replace('project-test1.1_/index.html');
+            }
+        }
+    </script>
+</body>
+</html>

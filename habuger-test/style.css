@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+@import url("https://use.fontawesome.com/releases/v6.5.1/css/all.css");
+
+/* Modern Dark Theme Styles */
+:root {
+    --primary-color: #7289da;
+    --background-dark: #1a1a1a;
+    --background-darker: #141414;
+    --text-color: #ffffff;
+    --input-bg: #2d2d2d;
+    --input-border: #404040;
+    --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    --light-gray: #f5f5f5;
+    --white: #ffffff;
+    --dark-bg: transparent;
+    --popup-bg: rgba(224, 224, 224, 0.9);
+    --inner-popup-bg: rgba(208, 208, 208, 0.95);
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background-dark);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    position: relative;
+    width: 400px;
+    padding: 40px;
+    background: var(--background-darker);
+    box-shadow: var(--box-shadow);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.loginBx h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: var(--text-color);
+    text-align: center;
+    font-size: 2em;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.loginBx h2 i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.loginBx .inputBx {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.loginBx .inputBx input {
+    width: 100%;
+    padding: 15px 20px;
+    outline: none;
+    font-size: 16px;
+    color: var(--text-color);
+    border: 1px solid var(--input-border);
+    border-radius: 10px;
+    background: var(--input-bg);
+    transition: all 0.3s ease;
+}
+
+.loginBx .inputBx input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(114, 137, 218, 0.3);
+}
+
+.password-container {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.password-container input {
+    width: 100%;
+    padding: 15px 20px;
+    outline: none;
+    font-size: 16px;
+    color: var(--text-color);
+    border: 1px solid var(--input-border);
+    border-radius: 10px;
+    background: var(--input-bg);
+    transition: all 0.3s ease;
+}
+
+.password-container input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(114, 137, 218, 0.3);
+}
+
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: var(--primary-color);
+}
+
+.loginBx .inputBx input[type="submit"] {
+    width: 100%;
+    padding: 15px 20px;
+    outline: none;
+    font-size: 16px;
+    color: var(--text-color);
+    border: none;
+    border-radius: 10px;
+    background: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.loginBx .inputBx input[type="submit"]:hover {
+    background: #5b73c7;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(114, 137, 218, 0.4);
+}
+
+.loginBx .group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.loginBx .group a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.loginBx .group a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .login {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .loginBx h2 {
+        font-size: 1.5em;
+    }
+}
+
+/* Add will-change to optimize animations */
+.box, .login, .loginBx, .loginBx form, h2 {
+    will-change: transform, opacity, height, width;
+}
